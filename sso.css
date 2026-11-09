@@ -1,0 +1,198 @@
+body{grid-template-rows:84px minmax(0,1fr) 54px 82px}
+.brand{font-size:20px;letter-spacing:.12em;font-weight:800;line-height:1}.brand small{display:block;font-size:8px;letter-spacing:.18em;margin-top:4px}
+header button,footer button{min-width:44px;min-height:44px}
+#medals{display:flex;margin-left:auto;gap:9px}.medal{width:36px;height:36px;display:grid;place-items:center;border-radius:50%;border:1px solid #a5915a;color:#897f66;opacity:.45}.medal.earned{opacity:1;background:#cfb96d;color:#403623;filter:drop-shadow(0 0 6px #b59a4f88)}.medal.forced{opacity:1;background:#e7c9a0;color:#7a4a20;border-color:#c98b4c}
+#status{margin-left:auto;max-width:280px}
+.scene{gap:32px}.scene-view svg{max-height:52vh}.visual-wrap{position:relative;min-width:0}
+.ghost{background:transparent;border-color:#d6c59588}
+.big-action.go{background:linear-gradient(120deg,#9fd37a,#5e9d4a);color:#13240f;font-weight:700}
+.start{background:linear-gradient(120deg,#d4b370,#bd693c);color:#262c24;font-weight:700}
+.note{font-size:11px;color:#d3c9ae}
+.text .big-action,.text .ghost{margin-top:8px}
+/* HUD y telemetría */
+.hud-panel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#0e2a26c9;border:1px solid #7ff0d4aa;border-radius:10px;padding:14px 20px;text-align:center;backdrop-filter:blur(3px);box-shadow:0 0 30px #7ff0d433;max-width:80%}
+.hud-panel small{display:block;font-size:9px;letter-spacing:.25em;color:#9ff5df}.hud-panel b{font:20px Georgia,serif;color:#f3fff9}
+.dawn .scene-view svg{filter:sepia(.25) saturate(1.1) hue-rotate(-10deg) brightness(1.04)}
+.beacon{animation:beacon 1s steps(2) infinite}@keyframes beacon{50%{fill:#5a3a1a}}
+.crew{animation:bob 2.4s ease-in-out infinite;animation-delay:var(--d)}@keyframes bob{50%{transform:translateY(-3px)}}
+.telemetry{margin-top:12px;padding:11px 14px;border:1px solid #ff8a6a;background:#3b1c16e6;color:#ffd7c8;border-radius:8px;font-size:13px;letter-spacing:.04em}
+.telemetry.warn{border-color:#f0c35a;background:#3a2e14e6;color:#ffe7a8}
+.blink{color:#ff5a3a;animation:beacon 1s steps(2) infinite}
+.dizzy{animation:spin 2s linear infinite;transform-origin:0 -150px;transform-box:view-box}
+@keyframes spin{to{transform:rotate(360deg)}}
+.smoky .scene-view svg{filter:saturate(.8) brightness(.92)}
+.fire-layer{position:absolute;inset:0;pointer-events:none;overflow:hidden;border-radius:15px}
+.smoke{position:absolute;left:30%;bottom:30%;width:55%;height:70%;background:radial-gradient(ellipse,#2c302ab0,transparent 68%);transform:rotate(25deg);animation:drift 7s infinite alternate}
+@keyframes drift{to{transform:translate(20px,-20px) rotate(34deg);opacity:.6}}
+/* Mapa holográfico */
+.holo{background:#0b1d1f}.hotspot{animation:arrive .8s both;animation-delay:var(--d)}
+.ping{animation:ping 1.6s ease-out infinite;transform-box:fill-box;transform-origin:center}@keyframes ping{from{opacity:1;transform:scale(.8)}to{opacity:0;transform:scale(1.6)}}
+.windlines{animation:windmove 3s linear infinite}@keyframes windmove{from{transform:translateX(-20px)}to{transform:translateX(30px)}}
+/* Drag & drop */
+.dnd{display:grid;gap:14px}.bins{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.bin{border:1px dashed #e3d19b;border-radius:12px;background:#1f362bd9;min-height:190px;padding:10px;display:flex;flex-direction:column;gap:8px;cursor:pointer;transition:background .2s}
+.bin>b{font-size:11px;letter-spacing:.16em;color:#f0d88c;text-align:center;padding-bottom:6px;border-bottom:1px solid #e3d19b44}
+.bin.over,.bin:focus-visible{background:#4b5a35}
+.bin-chips{display:grid;gap:6px}
+.chip{font-size:12px;line-height:1.3;background:#efe4c5;color:#393c2c;text-align:left;padding:8px 10px;min-height:40px}
+.chip.right{background:#cfeeb8;border-color:#5e9d4a;color:#1b3210}
+.chip.wrong{background:#f3b3a4;border-color:#c0412b;color:#4a120a;animation:shake .5s 2}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.tray{display:flex;flex-wrap:wrap;gap:8px;min-height:52px;padding:10px;border-radius:10px;background:#00000026}
+.tray-empty{font-size:12px;color:#d3cfb9;align-self:center}
+.token{background:#efe4c5;color:#393c2c;min-height:44px;font-weight:600}.token.selected{background:#dcc176;outline:2px solid #f4d984}
+.legend{font-size:11px;color:#d3cfb9;margin:0}
+.dnd.ok .bin,.dnd.solved .bin{border-style:solid;border-color:#8fd16a;box-shadow:0 0 18px #8fd16a44}
+.dnd.solved .bin{border-color:#8fd16a}
+.dnd.review-ko .bin,.dnd.solved .bin,.dnd.ok .bin{cursor:default}
+.amber{box-shadow:0 0 0 2px #f0b44a,0 0 60px #f0b44a55;border-radius:14px;padding:8px;background:#f0b44a18}
+.red{box-shadow:0 0 0 2px #e2513a,0 0 60px #e2513a66;border-radius:14px;padding:6px;background:#e2513a14}
+.ok-glow{border-radius:14px;padding:8px;background:#8fd16a14}
+/* Tarjetas */
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.card{display:flex;flex-direction:column;gap:10px;text-align:left;background:#f4edda;color:#35372b;border:1px solid #c4b786;border-radius:12px;padding:16px;min-height:240px;font-size:14px;line-height:1.45;transition:transform .15s,box-shadow .15s}
+.card b{font-size:11px;letter-spacing:.18em;color:#7a6a3a}
+.card:hover:not(:disabled){transform:translateY(-4px);box-shadow:0 12px 30px #0006;background:#fff7e4}
+.card.correct{background:#cfeeb8;border-color:#5e9d4a;opacity:1}.cards.locked .card:not(.correct){opacity:.45}
+.countdown{font:700 56px/1 ui-monospace,Consolas,monospace;text-align:center;color:#f2d47e;margin-bottom:14px;letter-spacing:.05em}
+.countdown.urgent{color:#ff5a3a;animation:beacon .5s steps(2) infinite}
+/* Ladera */
+.walker{animation:bob 1.6s ease-in-out infinite;animation-delay:var(--d)}
+.rock.pass{animation:rockpass 3s ease-in infinite}@keyframes rockpass{from{transform:translate(0,0)}to{transform:translate(120px,330px)}}
+.rock.hit{animation:rockhit 2.2s ease-in infinite}@keyframes rockhit{from{transform:translate(0,0)}to{transform:translate(0,140px)}}
+.impact{animation:beacon .6s steps(2) infinite}
+.whip{animation:whip .7s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:left bottom}@keyframes whip{to{transform:rotate(-14deg)}}
+.lat-fire path{animation:burn 1.4s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:bottom}@keyframes burn{to{transform:scaleY(1.3);opacity:.7}}
+.timeout{position:absolute;top:40%;left:0;right:0;text-align:center;font:700 34px Georgia,serif;color:#ffd0c4;text-shadow:0 2px 12px #000}
+.schematic{background:#2a1414}.pulse-ring{animation:ping 1.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+.rotor{animation:rotor .25s linear infinite;transform-box:fill-box;transform-origin:center}@keyframes rotor{50%{transform:scaleX(.2)}}
+.flames-in path{animation:burn 1.2s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:bottom}
+.route{animation:dash 2s linear infinite}@keyframes dash{to{stroke-dashoffset:-44}}
+/* Sellos */
+.result-stamp{display:inline-block;border:2px solid #d2be77;color:#ead490;padding:8px 14px;border-radius:4px;letter-spacing:.15em;font-size:11px;font-weight:700;margin:0 0 12px}
+.result-stamp.ok{border-color:#8fd16a;color:#c9f2ac;background:#8fd16a1a}
+.result-stamp.amber{border-color:#f0b44a;color:#ffd99a}.result-stamp.red{border-color:#e2513a;color:#ffb8a8}
+/* Dashboard final */
+.tablet{background:linear-gradient(160deg,#1d2b25,#111a16);border:10px solid #2c302a;border-radius:24px;padding:22px;box-shadow:0 30px 70px #0008}
+.tablet-head small{display:block;font-size:9px;letter-spacing:.25em;color:#9ff5df}.tablet-head b{font:22px Georgia,serif}
+.checklist{list-style:none;padding:0;margin:16px 0;display:grid;gap:10px}
+.checklist li{display:grid;grid-template-columns:30px 1fr;gap:2px 10px;align-items:center;background:#ffffff0d;border-radius:8px;padding:10px 12px;font-size:14px}
+.checklist li span{grid-row:span 2;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#555;color:#fff;font-weight:700}
+.checklist li.done span{background:#5e9d4a}.checklist li.forced span{background:#c98b4c}
+.checklist small{font-size:11px;color:#c9d3c4}
+.score{display:flex;align-items:baseline;gap:10px;margin:8px 0 16px}.score strong{font:44px Georgia,serif;color:#e8cf7e}.score span{font-size:12px}
+.tablet .big-action{width:100%;box-shadow:0 0 24px #8fd16a66;animation:glow 2s ease-in-out infinite alternate}
+@keyframes glow{from{box-shadow:0 0 10px #8fd16a44}to{box-shadow:0 0 28px #8fd16aaa}}
+.index-list{display:grid;gap:6px}.index-list button{text-align:left}
+#captions{font-size:12px;max-height:50px}#modal p{font-size:14px}
+@media(max-width:1100px){.cards{grid-template-columns:1fr}.card{min-height:0}}
+@media(max-width:760px){body{grid-template-rows:84px minmax(0,1fr) 60px 120px}.identity{display:none}#count{display:none}.medal{width:26px;height:26px}#medals{gap:4px}.scene{grid-template-columns:1fr;gap:16px}.bins{grid-template-columns:1fr}.bin{min-height:90px}.countdown{font-size:40px}footer{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:5px}footer button{font-size:10px;padding:5px}#status{grid-column:1/3;font-size:10px;margin:0}#prev{grid-column:3}#next{grid-column:4;min-width:0}.hud-panel b{font-size:14px}}
+@media print{header,footer,#cc-space,button{display:none!important}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+/* Módulo 5 */
+.map-board{position:relative;border:1px solid #7ff0d466;border-radius:15px;overflow:hidden;box-shadow:0 20px 60px #0006}
+.map-board svg{display:block;width:100%}
+.bin.spot{position:absolute;width:22%;min-height:62px;padding:6px;border:2px dashed #ffe38a;background:#0b1d1fcc;border-radius:12px;animation:spotpulse 1.8s ease-in-out infinite}
+.bin.spot>b{display:none}
+.bin.spot .bin-chips{min-height:46px;display:grid;place-items:center}
+.bin.spot:empty:after,.bin.spot .bin-chips:empty:after{content:'?';font:700 22px Georgia,serif;color:#ffe38a}
+.bin.spot .chip{width:100%;text-align:center;font-weight:700}
+.dnd.mapped .bin.spot{cursor:pointer}.dnd.ok .bin.spot,.dnd.solved .bin.spot{animation:none;border-style:solid;border-color:#8fd16a}
+.dnd.review-ko .bin.spot{animation:none}
+@keyframes spotpulse{50%{box-shadow:0 0 0 6px #ffe38a33}}
+.thermal{animation:thermal 1.6s ease-in-out infinite alternate}@keyframes thermal{to{stroke-opacity:.5}}
+.windvec{animation:windmove 2.4s linear infinite;animation-delay:var(--d)}
+.scan{animation:scan 3s linear infinite}@keyframes scan{from{transform:translateY(0)}to{transform:translateY(460px)}}
+.fl{transform-box:fill-box;transform-origin:bottom;animation:burn 1.1s ease-in-out infinite alternate;animation-delay:var(--d)}
+.glowpulse{animation:glow 3s ease-in-out infinite alternate}
+.pov .scene-view svg{filter:saturate(.75) brightness(.85) sepia(.3)}
+.pov .scene-view{animation:breathe 4s ease-in-out infinite}@keyframes breathe{50%{transform:translateY(-3px) scale(1.005)}}
+.mk circle{fill:#0b1d1fcc;stroke:#ffe38a;stroke-width:3}.mk text{fill:#ffe38a}
+.mk.chosen circle{fill:#ff5a2a;stroke:#fff}.mk.safe circle{fill:#3f8f3a;stroke:#9fe27a}.mk.safe text{fill:#fff}.mk.off{opacity:.45}
+.torch{transform-box:fill-box;transform-origin:bottom;animation:torch .9s ease-in-out infinite alternate}@keyframes torch{from{transform:scaleY(.85);opacity:.75}to{transform:scaleY(1.08);opacity:1}}
+.engulf{animation:engulf 1.2s ease-out infinite}@keyframes engulf{from{r:30;opacity:.8}to{r:95;opacity:.2}}
+.mayday{position:absolute;top:44%;left:0;right:0;text-align:center;font:800 44px/1 ui-monospace,Consolas,monospace;color:#ff3b2a;letter-spacing:.2em;text-shadow:0 0 20px #000;animation:beacon .5s steps(2) infinite}
+.shake .scene-view{animation:shakebig .35s 4}@keyframes shakebig{25%{transform:translate(-6px,3px)}75%{transform:translate(6px,-3px)}}
+.strobe{border-radius:16px;animation:strobe 1.2s steps(2) infinite}@keyframes strobe{50%{box-shadow:0 0 0 3px #ff5a3a,0 0 40px #ff5a3a88}}
+.smk{animation:smk 3s ease-out infinite;animation-delay:var(--d)}@keyframes smk{from{opacity:.5;transform:translateY(0)}to{opacity:0;transform:translateY(-30px)}}
+.smoke-veil{animation:veil 3s ease-in-out infinite alternate}@keyframes veil{to{opacity:.55}}
+.temp-hud{position:absolute;right:14px;bottom:14px;background:#0b1d1fd9;border:1px solid #ff8a5a;border-radius:8px;padding:8px 12px;display:grid;gap:4px;min-width:170px}
+.temp-hud small{font-size:9px;letter-spacing:.2em;color:#ffb38a}.temp-hud b{font-size:11px;letter-spacing:.1em}
+.temp-bar{height:6px;border-radius:3px;background:#ffffff22;overflow:hidden}.temp-bar i{display:block;height:100%;width:62%;background:linear-gradient(90deg,#f0c35a,#ff4d2a);animation:temp 2.5s ease-in-out infinite alternate}@keyframes temp{to{width:82%}}
+.zone-cards .card{min-height:0}
+.gully+.zone-cards,.scene-view.gully{margin-bottom:12px}
+.seal{width:40px;height:40px;margin:-6px auto 10px;font-size:20px!important;border-radius:50%;display:grid;place-items:center;font-size:30px;color:#13240f;background:radial-gradient(#cfeeb8,#5e9d4a);box-shadow:0 0 0 4px #8fd16a55,0 0 24px #8fd16a88}
+.cert{background:#fbf7ea;color:#2d3329;border:2px solid #b29a4f;border-radius:10px;padding:20px 24px;text-align:center;margin:10px 0}
+.cert h3{font:400 20px Georgia,serif;margin:6px 0 14px;color:#3b3a2e}.cert-k{font-size:10px;letter-spacing:.25em;color:#806312;margin:0}
+.cert-name{font:400 24px Georgia,serif;margin:6px 0;color:#2d3329}.cert-line{display:inline-block;width:70%;border-bottom:1px solid #6b6650;height:22px}
+.cert p{color:#3b3a2e!important}.cert ul{list-style:none;padding:0;margin:10px 0 0;font-size:12px;text-align:left;display:inline-block}.cert-meta{font-size:13px}
+#print-cert{display:none}
+@media print{body>*:not(#print-cert){display:none!important}#print-cert{display:block!important;padding:40px}#print-cert .cert{border-width:3px;padding:50px}}
+.t-end .tablet{padding:16px 20px}.t-end .checklist{margin:10px 0;gap:7px}.t-end .checklist li{padding:7px 10px;font-size:13px}.t-end .score{margin:4px 0 8px}
+/* Módulo 3/4 */
+.infographic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:12px}
+.info-item{display:flex;gap:10px;align-items:center;padding:12px;border:1px solid #e3d19b88;border-radius:10px;background:#1f362be6;animation:arrive .7s both;animation-delay:var(--d)}
+.info-item span{font-size:22px;color:#f0d88c}.info-item b{font-size:13px;line-height:1.3;font-weight:600}
+html[data-appearance=light] .info-item{background:#fbf9f1;color:#343b3a;border-color:#b7a35e}
+.march-strip{margin-top:10px}.march-strip svg{max-height:150px}
+.marchstep{animation:marchstep 1.4s ease-in-out infinite;animation-delay:var(--d)}@keyframes marchstep{50%{transform:translate(6px,-3px)}}
+.treefall{animation:treefall 2.6s ease-in forwards}@keyframes treefall{to{transform:rotate(80deg)}}
+.treefall-ko{animation:treefallko 1.8s ease-in forwards}@keyframes treefallko{to{transform:rotate(-80deg)}}
+.sound-icon{animation:beacon .9s steps(2) infinite}
+.shadow-grow{animation:shadowgrow 3s ease-in infinite alternate}@keyframes shadowgrow{from{opacity:.15}to{opacity:.5}}
+.flowover{animation:waterfall 1.2s ease-in-out infinite alternate}
+.impact{animation:beacon .6s steps(2) infinite}
+@media(max-width:760px){.infographic{grid-template-columns:1fr}}
+/* Módulo 4 */
+.dnd .bins:has(> .bin:nth-child(2):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+.spot-pulse{animation:beacon 1.4s steps(2) infinite}
+.roll{animation:roll 1.8s linear infinite}.roll.r2{animation-duration:1.4s}.roll.r3{animation-duration:2.2s}
+@keyframes roll{from{transform:translate(0,0)}to{transform:translate(-260px,180px)}}
+.bounce{animation:bounce .9s ease-out infinite alternate}@keyframes bounce{from{transform:translate(0,0)}to{transform:translate(-40px,-50px)}}
+.shout{animation:beacon .6s steps(2) infinite}
+.whip{animation:whip .5s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:left bottom}
+.distort .scene-view{animation:distort .3s steps(2) infinite}@keyframes distort{50%{filter:hue-rotate(-20deg) contrast(1.3) blur(.6px)}}
+.t-timed.case-3 .cards{animation:camshake .6s ease-in-out infinite}@keyframes camshake{25%{transform:translate(-1.5px,1px)}75%{transform:translate(1.5px,-1px)}}
+body.urgent-fx main{animation:shakebig .35s infinite;box-shadow:inset 0 0 120px #c0311b99}
+@keyframes shakebig{25%{transform:translate(-6px,3px)}75%{transform:translate(6px,-3px)}}
+/* Módulo 1 · Procedimiento de Trabajo y SSO */
+.dust{animation:dustf 6s linear infinite}@keyframes dustf{0%{transform:translate(0,0)}50%{transform:translate(14px,-10px)}100%{transform:translate(0,0)}}
+.para .far{animation:parax 9s ease-in-out infinite}@keyframes parax{50%{transform:translateX(-12px)}}
+.rotor-blade{transform-box:fill-box;transform-origin:center;animation:rotorx .25s linear infinite}@keyframes rotorx{50%{transform:scaleX(.15)}}
+.drop{animation:beacon 1.2s steps(2) infinite}
+.arm{transform-box:fill-box;transform-origin:0% 100%;animation:armx 2.6s ease-in-out infinite}@keyframes armx{50%{transform:rotate(-8deg)}}
+.radius-strip{margin-top:10px}.radius-strip svg{display:block;width:100%;height:auto;max-height:250px}.m1-ok .dnd.ok .bin{min-height:96px}
+.draw{stroke-dasharray:700;stroke-dashoffset:700;animation:drawx 1.6s ease-out forwards}@keyframes drawx{to{stroke-dashoffset:0}}
+.turn{transform-box:fill-box;transform-origin:center;animation:turnx 2.4s ease-out forwards}@keyframes turnx{to{transform:translate(-40px,-60px) rotate(-30deg)}}
+.shield{animation:shieldp 1.8s ease-in-out infinite}@keyframes shieldp{50%{opacity:.6}}
+.keyout{animation:keyx 1.6s ease-out forwards}@keyframes keyx{from{transform:translate(400px,240px);opacity:.3}to{transform:translate(560px,120px);opacity:1}}
+.flame{transform-box:fill-box;transform-origin:bottom;animation:flamex .5s ease-in-out infinite alternate}@keyframes flamex{from{transform:scaleY(.6);opacity:.6}to{transform:scaleY(1.2);opacity:1}}
+.gear-jam{animation:jam 1s steps(1) infinite}@keyframes jam{0%{transform:rotate(0)}30%{transform:rotate(14deg)}60%{transform:rotate(10deg)}80%{transform:rotate(16deg)}}
+.glitch{animation:glitchx .4s steps(2) infinite}@keyframes glitchx{50%{transform:translateX(30px);opacity:0}}
+.jet{animation:beacon .3s steps(2) infinite}
+.urgent-frame{box-shadow:inset 0 0 0 3px #ff8a3a;animation:urgentf 1.4s ease-in-out infinite}@keyframes urgentf{50%{box-shadow:inset 0 0 0 3px #ff8a3a33}}
+/* Módulo 2 · SCI */
+.flowin{animation:flowin 2.2s ease-out both}@keyframes flowin{from{transform:translate(-160px,40px)}}
+.flowup{animation:flowup 2.2s ease-out both}@keyframes flowup{from{transform:translate(0,160px)}}
+.arrive{animation:arrivetruck 4s ease-in-out infinite alternate}@keyframes arrivetruck{to{transform:translateX(90px)}}
+.veilin{opacity:0;animation:veilin 3s ease-in forwards}@keyframes veilin{to{opacity:.72}}
+.retreat{animation:retreat 2.6s ease-out forwards}@keyframes retreat{to{transform:translate(-300px,90px)}}
+.leave{animation:leave 3s ease-in 1s forwards}@keyframes leave{to{transform:translateX(-260px)}}
+.idle{animation:idleshake .15s steps(2) infinite}@keyframes idleshake{50%{transform:translateY(1px)}}
+.dnd .bin>b{line-height:1.35}
+/* Módulo 3 · tríada en quebrada */
+.token.bounce{animation:bounceback .55s ease-out;border-color:#c0412b;background:#f3b3a4;color:#4a120a}@keyframes bounceback{0%{transform:translate(0,-26px) scale(1.04)}35%{transform:translate(-10px,0)}55%{transform:translate(8px,0)}75%{transform:translate(-5px,0)}100%{transform:none}}
+.flank{animation:flankx 2.4s ease-out both}@keyframes flankx{from{transform:scaleX(.2);opacity:.2}}
+.ember{animation:emberf 2.8s linear infinite}@keyframes emberf{from{transform:translate(0,-40px);opacity:1}to{transform:translate(60px,260px);opacity:.2}}
+.spotgrow{transform-box:fill-box;transform-origin:center bottom;animation:spotgrow 3s ease-in forwards}@keyframes spotgrow{from{transform:scale(.3)}to{transform:scale(1.6)}}
+.triadraw{stroke-dasharray:900;stroke-dashoffset:900;animation:drawx 1.8s ease-out forwards}
+.run{animation:runup 2.4s ease-in infinite}@keyframes runup{from{transform:translate(0,0);opacity:.2}60%{opacity:1}to{transform:translate(60px,-160px);opacity:0}}
+.backup{animation:backup 2.6s ease-out forwards}@keyframes backup{to{transform:translate(-220px,30px)}}
+.dnd.mapped .tray{margin-top:4px}
+.tosafe{animation:tosafe 2.6s ease-out forwards}@keyframes tosafe{to{transform:translateX(200px)}}
+.chip:hover{background:#f7eed4;color:#393c2c;border-color:#c0412b}
+.dnd.mapped .map-board{width:min(100%,calc(34vh * 1.739));margin:0 auto}
+/* Módulo 4 · Maquinaria */
+.blink{animation:blink .5s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.backoff{animation:backoff 2.6s ease-out 1s forwards}@keyframes backoff{to{transform:translateX(-120px)}}
+.retreat2{animation:retreat2 2.4s ease-out forwards}@keyframes retreat2{from{transform:translate(120px,-40px)}}

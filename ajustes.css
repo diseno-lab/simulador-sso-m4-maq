@@ -1,0 +1,87 @@
+/* v03 · Controles agrupados en Configuración (modelo Cultura Mapuche v16) */
+body{grid-template-rows:76px minmax(0,1fr) 58px 72px}
+header{gap:18px}
+.header-tools{display:flex;align-items:center;gap:10px;margin-left:auto}
+.header-tools #medals{margin:0 6px 0 0}
+.header-tools .icon-btn{display:grid;place-items:center;width:40px;height:40px;min-width:40px;min-height:40px;border-radius:9px;padding:9px;flex:none;background:#423c2c;color:#f3e8c9}
+.header-tools svg{width:22px;height:22px}
+.header-tools #settings-toggle{color:#f4d47a;box-shadow:0 0 14px #e0ba3433}
+.header-tools #settings-toggle:hover{box-shadow:0 0 20px #e0ba3466}
+footer{display:flex;align-items:center;gap:12px;padding:10px 2.5vw}
+footer #play{display:grid;place-items:center;width:42px;height:42px;min-width:42px;padding:9px;border-radius:9px}
+footer #play svg{width:20px;height:20px}
+footer #status{margin-left:auto;padding-left:10px;border-left:2px solid #b9952b;max-width:220px;font-size:11px;line-height:1.4}
+footer #prev,footer #next{min-height:43px;padding:10px 16px}
+#captions{font-size:var(--caption-font-size,13px)!important;max-height:52px;line-height:1.4}
+/* Diálogos de configuración y guía */
+.ui-dialog{color:#f0e9d8;border:1px solid #bda25f88;box-shadow:0 30px 100px #0009;border-radius:18px 5px 18px 5px;background:radial-gradient(ellipse at 95% 0,#9d7b3518,transparent 55%),linear-gradient(145deg,#302b21,#1e1c16);overflow-y:auto;scrollbar-width:thin;scrollbar-color:#a58c5b #242019}
+.ui-dialog .close{position:absolute;top:18px;right:22px;display:inline-flex;align-items:center;justify-content:center;gap:12px;color:#e7cc87;background:#28241d;border:1px solid #b79d5a66;border-radius:8px;font-size:11px;line-height:1.2;height:36px;min-height:36px;min-width:75px;padding:5px 12px}
+.ui-dialog .close b{font-size:24px;font-weight:400;line-height:1}
+.ui-dialog h2{color:#f0dab0;font-family:Georgia,serif;font-weight:400}
+.ui-dialog .modal-label{color:#d5b965;letter-spacing:.18em}
+#course-settings{width:min(740px,94vw);padding:22px 28px 16px;max-height:calc(100dvh - 24px)}
+#course-settings .modal-label{margin:0 120px 5px 0;font-size:9px;line-height:1.4}
+#course-settings h2{font-size:28px;margin:4px 120px 7px 0;line-height:1.15}
+#course-settings .settings-lead{margin:0 0 12px;font-size:12px;line-height:1.4;color:#c6bdab}
+.settings-options{border-block:1px solid #c3ab6b33}
+.settings-row{display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid #c3ab6b18;padding:6px 0;min-height:49px}
+.settings-row:last-child{border-bottom:0}
+.settings-row h3{font-weight:600;color:#f2e9d1;font-size:13px;margin:0 0 3px;line-height:1.25}
+.settings-row p{color:#c2bba9;margin:0;font-size:11px;line-height:1.35}
+.settings-switch{min-width:50px;min-height:34px;border:1px solid #c5a75066;border-radius:20px;background:#403827;color:#e9d294;padding:6px 12px;font-size:12px}
+.settings-switch[aria-pressed=true]{background:#d4b849;color:#29261d}
+.volume-control{display:flex;align-items:center;gap:10px;min-width:235px}
+.volume-control input{width:130px;min-height:32px;accent-color:#d5ba53;cursor:pointer}
+.volume-control output{min-width:39px;font-size:11px;color:#e4d8b6}
+.volume-toggle{display:grid;place-items:center;width:34px;height:34px;min-width:34px;min-height:34px;padding:7px;border:1px solid #bca35a66;border-radius:8px;background:#49402c;color:#ffe59b}
+.volume-toggle svg{width:19px;height:19px}
+.volume-toggle[data-off=true]{color:#c7bfad;background:#302c23;border-style:dashed}
+.settings-row select,#light-interface{border:1px solid #bba15d88;background:#383227;color:#f7e8bf;border-radius:7px;padding:8px 11px;font-size:12px;min-height:36px}
+.guide-launch{display:flex;align-items:center;justify-content:space-between;width:100%;text-align:left;border:1px solid #bba15d77;background:linear-gradient(110deg,#5d4d2a,#332d20);color:#f8e7b0;padding:12px 15px;margin-top:12px;border-radius:7px 14px 7px 7px}
+.guide-launch strong,.guide-launch small{display:block}.guide-launch strong{font-size:13px}.guide-launch small{font-size:10px;margin-top:3px}.guide-launch>span:last-child{font-size:22px}
+.settings-note{color:#c4bca9;font-size:10px;margin:8px 0 0}
+#experience-guide{width:min(900px,94vw);max-height:calc(100dvh - 24px);padding:26px}
+#experience-guide h2{margin:4px 120px 16px 0;font-size:28px}
+.guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+.guide-grid section{padding:18px;background:#d0b66a0c;border:1px solid #c1a25644;border-radius:8px}
+.g-ico{font-size:22px;color:#e6c875}
+.guide-grid h3{font:400 20px/1.2 Georgia,serif;color:#f1dfb7;margin:12px 0 8px}
+.guide-grid p{font-size:13px;line-height:1.5;color:#d5cdbc;margin:0}
+/* Movimiento reducido */
+html[data-reduced-motion=true] *,html[data-reduced-motion=true] *:before,html[data-reduced-motion=true] *:after{animation:none!important;transition:none!important}
+/* Apariencia clara */
+html[data-appearance=light] body{background:#eee9de;color:#353b3b}
+html[data-appearance=light] main{background:radial-gradient(ellipse at 80% 10%,#d9cfa64d,transparent),linear-gradient(135deg,#f4f1e8,#e4dfcf)}
+html[data-appearance=light] #stage :is(h1,.lead,.text p){color:#343b3a}
+html[data-appearance=light] #stage .eyebrow{color:#806312}
+html[data-appearance=light] #stage .note,html[data-appearance=light] .legend,html[data-appearance=light] .tray-empty{color:#5d5a48}
+html[data-appearance=light] #cc-space{background:#eae5d7}
+html[data-appearance=light] #captions{color:#343b3a;background:#fffcf5;border-color:#baa464}
+html[data-appearance=light] .ghost{color:#4d452e;border-color:#a8986b}
+html[data-appearance=light] .bin{background:#fbf9f1;border-color:#b7a35e}
+html[data-appearance=light] .bin>b{color:#806312;border-color:#b7a35e66}
+html[data-appearance=light] .bin.over{background:#efe4c5}
+html[data-appearance=light] .tray{background:#00000010}
+html[data-appearance=light] .result-stamp{color:#6b5512;border-color:#b29a4f}
+html[data-appearance=light] .result-stamp.ok{color:#2f5e1c;border-color:#5e9d4a;background:#cfeeb855}
+html[data-appearance=light] .result-stamp.amber{color:#7a4b00;border-color:#d0982d}
+html[data-appearance=light] .result-stamp.red{color:#8a2414;border-color:#c0412b}
+html[data-appearance=light] .countdown{color:#7a5a10}
+html[data-appearance=light] .countdown.urgent{color:#c0311b}
+html[data-appearance=light] dialog{background:#faf7ee;color:#303b3c;border-color:#baa36a}
+html[data-appearance=light] dialog :is(h2,h3,p,.modal-label,.settings-lead,.settings-note,.settings-row h3,.settings-row p,.volume-control output){color:#3c4541}
+html[data-appearance=light] .ui-dialog :is(.settings-switch,.settings-row select,#light-interface,.volume-toggle){background:#e8e2d2;color:#544823}
+html[data-appearance=light] .ui-dialog .settings-switch[aria-pressed=true]{background:#d4b849;color:#29261d}
+html[data-appearance=light] .guide-launch{background:linear-gradient(110deg,#e5d8af,#f6f0df);color:#51421b}
+html[data-appearance=light] .guide-grid section{background:#f0ece1}
+html[data-appearance=light] .guide-grid :is(h3,p){color:#39433d}
+html[data-appearance=light] .g-ico{color:#816421}
+html[data-appearance=light] .ui-dialog .close,html[data-appearance=light] dialog #close{background:#e5ddca;color:#534719}
+html[data-appearance=light] .index-list button{background:#ece6d7;color:#343b3a}
+/* Responsivo */
+@media(max-width:1050px){.guide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){body{grid-template-rows:70px minmax(0,1fr) 60px 66px}.header-tools{gap:6px}.header-tools .icon-btn{width:34px;height:34px;min-width:34px;min-height:34px;padding:7px}.header-tools svg{width:19px;height:19px}.header-tools #medals{display:none}footer{display:flex!important;gap:8px;padding:10px 12px}footer #status{display:none}footer #prev{margin-left:auto}footer #prev,footer #next{padding:8px 12px;font-size:12px;min-height:40px}.guide-grid{grid-template-columns:1fr}#experience-guide{padding:20px}}
+@media(max-width:600px){#course-settings{padding:17px 16px 12px;width:calc(100vw - 24px)}#course-settings .close{top:12px;right:14px;height:32px;min-height:32px;font-size:10px;padding:4px 9px;gap:8px}#course-settings h2{font-size:24px;margin-right:85px}.settings-row{min-height:44px;padding:5px 0;gap:9px}.settings-row h3{font-size:12px;margin:0;max-width:120px}.settings-row p{display:none}.volume-control{width:153px;min-width:153px;gap:6px}.volume-control input{width:77px;min-width:0;flex:1}.volume-control output{min-width:31px;font-size:10px}#light-interface{max-width:158px;font-size:10px;padding:7px 9px}.guide-launch small{display:none}}
+footer #prev:before{content:none!important}
+html[data-appearance=light] #course-settings .settings-lead{color:#5b5d4f}
+.tablet #restart{margin-top:12px}
